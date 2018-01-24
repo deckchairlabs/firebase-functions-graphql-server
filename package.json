@@ -1,0 +1,17 @@
+{
+  "scripts": {
+    "predeploy": "yarn build",
+    "deploy": "firebase deploy",
+    "build": "babel \"src\" --out-dir \"dist/functions\" --copy-files --ignore \"node_modules\"",
+    "postbuild": "cd \"dist/functions\" && yarn",
+    "serve": "yarn build --watch & firebase serve --only functions"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "jest": "^22.1.4",
+    "nodemon": "^1.14.11",
+    "rimraf": "^2.6.2"
+  },
+  "dependencies": {}
+}
