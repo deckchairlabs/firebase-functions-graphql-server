@@ -4,7 +4,8 @@
     "deploy": "firebase deploy",
     "build": "babel \"src\" --out-dir \"dist/functions\" --copy-files --ignore \"node_modules\"",
     "postbuild": "cd \"dist/functions\" && yarn",
-    "serve": "yarn build --watch & firebase serve --only functions"
+    "preserve": "yarn build",
+    "serve": "firebase serve --only functions"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

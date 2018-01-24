@@ -1,12 +1,8 @@
 import fs from 'fs'
-import path from 'path'
 import { makeExecutableSchema } from 'graphql-tools'
 
-export default () => {
-  const typeDefs = fs.readFileSync(
-    path.join(__dirname, 'schema.graphql'),
-    'utf8'
-  )
+export default schemaPath => {
+  const typeDefs = fs.readFileSync(schemaPath, 'utf8')
 
   const resolvers = {
     Query: {
