@@ -1,4 +1,6 @@
 dist/
+.firebaserc
+
 # Created by https://www.gitignore.io/api/osx,node
 
 ### Node ###

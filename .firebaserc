@@ -1,5 +1,5 @@
 {
   "projects": {
-    "default": "heaps-good"
+    "default": "<project-id>"
   }
 }
