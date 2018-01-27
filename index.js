@@ -3,7 +3,6 @@ import Firestore from '@google-cloud/firestore'
 import createServer from './src/createServer'
 
 const firestore = new Firestore({
-  projectId: 'heaps-good',
   keyFilename: path.resolve(__dirname, 'serviceAccount.json')
 })
 
