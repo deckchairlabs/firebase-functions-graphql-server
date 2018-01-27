@@ -5,7 +5,7 @@ An Apollo GraphQL Server running on Firebase Functions
 # Development
 
 ```sh
-yarn serve
+yarn start
 ```
 
 # Deployment
