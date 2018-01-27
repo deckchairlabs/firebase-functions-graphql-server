@@ -1,3 +1,36 @@
+directive @firestoreList(collection: String!) on FIELD_DEFINITION
+directive @firestoreGet(collection: String!) on FIELD_DEFINITION
+directive @firestoreAdd(collection: String!) on FIELD_DEFINITION
+directive @firestoreUpdate(collection: String!) on FIELD_DEFINITION
+directive @firestoreDelete(collection: String!) on FIELD_DEFINITION
+
 type Query {
   hello(name: String): String!
+  beers: [Beer] @firestoreList(collection: "beers")
+  beer(id: ID!): Beer! @firestoreGet(collection: "beers")
+  breweries: [Brewery] @firestoreList(collection: "breweries")
+}
+
+type Mutation {
+  createBeer(input: CreateBeerInput): Beer @firestoreAdd(collection: "beers")
+  updateBeer(id: ID!, input: UpdateBeerInput): Beer @firestoreUpdate(collection: "beers")
+  deleteBeer(id: ID!): Boolean @firestoreDelete(collection: "beers")
+}
+
+type Beer {
+  id: ID!
+  name: String
+}
+
+input CreateBeerInput {
+  name: String!
+}
+
+input UpdateBeerInput {
+  name: String!
+}
+
+type Brewery {
+  id: ID!
+  name: String
 }

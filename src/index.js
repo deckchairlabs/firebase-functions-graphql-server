@@ -1,12 +1,14 @@
 import path from 'path'
 import { https } from 'firebase-functions'
-import createServer from 'deckchair-graphql-server'
-import createSchema from './schema'
+import Firestore from '@google-cloud/firestore'
+import createServer from './createServer'
 
-const schema = createSchema(path.join(__dirname, 'schema.graphql'))
+const firestore = new Firestore()
+
 const server = createServer({
-  schema,
-  endpoint: '/heaps-good/us-central1/api/graphql'
+  firestore,
+  schemaPath: path.resolve(__dirname, 'schema.graphql'),
+  endpoint: '/api/graphql'
 })
 
 export const api = https.onRequest(server)

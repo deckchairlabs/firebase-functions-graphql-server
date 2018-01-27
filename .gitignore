@@ -1,5 +1,6 @@
 dist/
 .runtimeconfig.json
+serviceAccount.json
 .firebaserc
 
 # Created by https://www.gitignore.io/api/osx,node

@@ -1,5 +1,8 @@
 {
+  "name": "firebase-functions-graphql-server",
+  "version": "0.0.1",
   "scripts": {
+    "start": "nodemon ./index.js --watch src --exec babel-node",
     "predeploy": "yarn build",
     "deploy": "firebase deploy",
     "build": "babel \"src\" --out-dir \"dist/functions\" --copy-files --ignore \"node_modules\"",
@@ -8,8 +11,11 @@
     "serve": "firebase serve --only functions"
   },
   "devDependencies": {
+    "@google-cloud/firestore": "^0.11.1",
     "babel-cli": "^6.26.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.6.1",
+    "concurrently": "^3.5.1",
     "jest": "^22.1.4",
     "nodemon": "^1.14.11",
     "rimraf": "^2.6.2"
